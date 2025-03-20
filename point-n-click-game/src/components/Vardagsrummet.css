@@ -1,0 +1,150 @@
+/* Styla huvudcontainern för rummet */
+.living-room {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+  }
+  
+  /* Bakgrundsbilden */
+  .living-room-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    object-fit: contain;
+    object-position: center;
+    z-index: -2;
+    transition: opacity 1s ease-in-out; /* Mjuk övergång */
+  }
+
+  /* Fade-effekt */
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1s forwards;
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  /* Klickbar zon för gardiner */
+.curtain-click {
+    position: absolute;
+    cursor: pointer;
+  }
+  
+  /* Meddelande till användaren */
+  .message {
+    position: absolute;
+    top: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+    z-index: 3;
+  }
+  
+  /* Notifikation för nyckeldelen */
+  .notification {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 255, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+    z-index: 3;
+  }
+  
+  /* Klickzoner för soffkuddar */
+  .living-room-hotspot {
+    position: absolute;
+    width: 15%;
+    height: 15%;
+    cursor: pointer;
+    border: 3px dotted transparent;
+    transition: border-color 0.3s ease-in-out;
+  }
+  
+  .living-room-hotspot:hover {
+    border-color: #ff0;
+    animation: sparkle 1s infinite alternate;
+  }
+  
+  /* Specifika zoner */
+  .left-pillow {
+    top: 60%;
+    left: 30%;
+  }
+  
+  .middle-pillow {
+    top: 60%;
+    left: 50%;
+  }
+  
+  .right-pillow {
+    top: 60%;
+    left: 70%;
+  }
+  
+  /* Nyckelbildens klickzon */
+  .clue-message {
+    position: absolute;
+    top: 60%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.7);
+    color: white;
+    padding: 10px 20px;
+    border-radius: 10px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 3;
+  }
+  
+  /* Dörren till barnkammaren */
+  .nursery-door {
+    top: 40%;
+    right: 10%;
+    width: 15%;
+    height: 30%;
+  }
+
+  .fact-popup {
+    position: absolute;
+    top: 15%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 15px 25px;
+    border-radius: 10px;
+    font-size: 18px;
+    text-align: center;
+    cursor: pointer;
+    z-index: 5;
+  }
+  
+  .living-room-hotspot {
+    position: absolute;
+    cursor: pointer;
+  }
+  
+  .living-room-hotspot:hover {
+    border: 2px dashed gold;
+  }
+  
