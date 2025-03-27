@@ -6,7 +6,7 @@ import Nursery from './components/Barnkammaren';
 import './App.css';
 
 function App() {
-  const [currentRoom, setCurrentRoom] = useState<'hall' | 'livingroom' | 'nursery'>('hall');
+  const [currentRoom, setCurrentRoom] = useState<'hall' | 'livingroom' | 'nursery' | 'nursery-part2'>('hall');
   const [hasKeyPart1, setHasKeyPart1] = useState(false);
   const [hasKeyPart2, setHasKeyPart2] = useState(false);
 
