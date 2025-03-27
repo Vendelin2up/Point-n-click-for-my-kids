@@ -16,8 +16,8 @@ const Nursery = ({ setCurrentRoom, setHasKeyPart2, hasKeyPart2 }: NurseryProps) 
   const [keyCollected, setKeyCollected] = useState(loadFromStorage("keyPart2") || false);
   const [showMessage, setShowMessage] = useState(false);
   const [showNotification, setShowNotification] = useState(false);
-
-  // Typa Timeout korrekt för web (inte NodeJS)
+  
+ 
   const trainTimer = useRef<ReturnType<typeof setInterval> | null>(null);
   const roomRef = useRef<HTMLDivElement>(null);
   const [roomRect, setRoomRect] = useState<DOMRect | null>(null);
@@ -49,22 +49,29 @@ const Nursery = ({ setCurrentRoom, setHasKeyPart2, hasKeyPart2 }: NurseryProps) 
         "/barnkammaren/train-start-no-key.jpg"
       ];
 
-  const playTrainAnimation = () => {
-    if (trainRunning) return;
-
-    setTrainRunning(true);
-    let i = 0;
-
-    trainTimer.current = setInterval(() => {
-      setImageSrc(trainFrames[i]);
-      i++;
-      if (i >= trainFrames.length) {
-        clearInterval(trainTimer.current!);
-        setTrainRunning(false);
-        setImageSrc(sackOpened ? "/barnkammaren/train-start-yes-key.jpg" : "/barnkammaren/train-start-no-key.jpg");
-      }
-    }, 500);
-  };
+      const playTrainAnimation = () => {
+        if (trainRunning) return;
+        const trainSound = new Audio("/sounds/train.mp3");
+        trainSound.play();
+      
+        const frames = trainFrames;
+        let i = 0;
+        setTrainRunning(true);
+      
+        const animate = () => {
+          if (i >= frames.length) {
+            setImageSrc(sackOpened ? "/barnkammaren/train-start-yes-key.jpg" : "/barnkammaren/train-start-no-key.jpg");
+            setTrainRunning(false);
+            return;
+          }
+      
+          setImageSrc(frames[i]);
+          i++;
+          setTimeout(animate, 1200); // Byt bild var 1.2 sek för mjukare övergång
+        };
+      
+        animate();
+      };
 
   
   const handleSackClick = () => {
