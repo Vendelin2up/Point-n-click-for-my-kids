@@ -2,6 +2,7 @@ import { useState } from 'react';
 import Hall from './components/Hall';
 import LivingRoom from './components/Vardagsrummet';
 import Nursery from './components/Barnkammaren';
+import NurseryPartTwo from './components/Barnkammaren-parttwo';
 
 import './App.css';
 
@@ -28,6 +29,13 @@ function App() {
             hasKeyPart2={hasKeyPart2} 
           />
         )}
+
+        {currentRoom === 'nursery-part2' && (
+          <NurseryPartTwo 
+            setCurrentRoom={setCurrentRoom}
+          />
+        )}
+
       </div>
     </>
   );
